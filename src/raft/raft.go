@@ -40,7 +40,7 @@ import (
 type ApplyMsg struct {
 	CommandValid bool
 	Command      interface{}
-	CommandIndex int
+	CommandIndex int // 该命令的索引
 
 	// For 2D:
 	SnapshotValid bool
