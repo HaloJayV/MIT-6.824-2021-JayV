@@ -18,6 +18,7 @@ func DPrintf(format string, a ...interface{}) (n int, err error) {
 	return
 }
 
+// "Put" or "Append"
 type Op struct {
 	// Your definitions here.
 	// Field names must start with capital letters,
@@ -32,14 +33,24 @@ type KVServer struct {
 	dead    int32 // set by Kill()
 
 	maxraftstate int // snapshot if log grows this big
-
 	// Your definitions here.
+	// 保存put的数据，key : value
+	kvDB map[string]string
+	// index(Raft pper) -> chan
+	waitApplyCh map[int]chan Op
+	// clientId : requestId
+	lastRequestId map[int64]int
+
+	// last Snapshot point & raftIndex
+	lastSSPointRaftLogIndex int
 }
 
+// RPC方法
 func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
 }
 
+// RPC方法
 func (kv *KVServer) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// Your code here.
 }
