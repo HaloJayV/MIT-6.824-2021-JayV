@@ -1,6 +1,6 @@
 package shardctrler
 
-import "6.824/raft"
+import "6.824/2021/raft-2021"
 import "6.824/labrpc"
 import "sync"
 import "6.824/labgob"

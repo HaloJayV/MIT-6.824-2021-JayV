@@ -154,6 +154,12 @@ func (rf *Raft) leaderCommitRule() {
 	}
 }
 
+// 返回Raft的lastLogIndex
+func (rf *Raft) getLastIndex() int {
+	// 还要加上快照压缩后，全局logIndex
+	return len(rf.log.Entries) - 1 + rf.lastSSPointIndex
+}
+
 // Leader找到Term对应的最后一条日志条目索引
 func (rf *Raft) findLastLogInTerm(xTerm int) int {
 	for i := rf.log.lastLog().Index; i > 0; i-- {
