@@ -1,4 +1,4 @@
-项目基础：Raft论文研读笔记（https://juejin.cn/post/7070396303657664526）
+项目基础：Raft论文研读笔记（https://www.cnblogs.com/JayV/p/15955210.html）
 
 Lab1笔记：
 
